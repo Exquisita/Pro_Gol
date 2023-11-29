@@ -1,0 +1,17 @@
+{% extends "master.html "%}
+{% block title %}
+    Usuarios de ProGol Watch
+{% endblock %}
+
+{% block content %}
+
+    <h1 class="text-center display-4">Canales</h1>
+    <ul class="list-group">
+        {% for users in mypersons %}
+            <li class="list-group-item d-flex justify-content-center">
+                <a href="channel/{{ users.id }}" class="lead">{{users.name }} {{users.last_name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

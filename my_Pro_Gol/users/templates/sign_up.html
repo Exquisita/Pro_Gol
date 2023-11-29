@@ -1,0 +1,11 @@
+{% extends "master.html" %}
+{% block content %}
+  <h1 class="text-center display-4">Registrate para subir tus mejores clips!!</h1>
+  <div class="d-flex justify-content-center my-3">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Crear cuenta</button>
+    </form>
+  </div>
+{% endblock %}

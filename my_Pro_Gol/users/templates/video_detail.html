@@ -1,0 +1,27 @@
+{% extends "master.html" %}
+{% block content %}
+    <title>{{ video.title.id }}</title>
+
+    <body>
+        <div class="d-flex justify-content-center">
+            <div class="card" style="width: 18rem;">
+
+                <div class="card-body text-center border border-3 rounded shadow-lg p-3 mb-5 bg-white rounded">
+                    <h3 class="card-title bg-light p-2">{{ video.title }}</h3>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><i class="fas fa-file-video"></i> Extension: {{ video.extension }}</li>
+                    <li class="list-group-item"><i class="fas fa-weight-hanging"></i> Size: {{ video.size }}</li>
+                    <li class="list-group-item"><i class="fas fa-user"></i> by:  {{ video.person.name }} </li>
+                </ul>
+                <div class="card-body d-flex justify-content-around">
+                    <a href="{% url 'channel' id=video.person.id %}" class="btn btn-primary">Volver al canal</a>
+                    <a href="{% url 'watch_videos' %}" class="btn btn-secondary">Ver todos los videos</a>
+                </div>
+
+            </div>
+        </div>
+    </body>
+{% endblock %}
+
+

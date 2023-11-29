@@ -1,0 +1,12 @@
+{% extends "master.html" %}
+
+{% block content %}
+  <h2 class="text-center display-4">Ver todos los videos</h2>
+  <ul class="list-group">
+    {% for video in videos %}
+      <li class="list-group-item d-flex justify-content-center">
+        <a href="{% url 'video_detail' id=video.id %}" class="lead">{{ video.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

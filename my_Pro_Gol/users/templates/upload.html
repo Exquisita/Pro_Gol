@@ -1,0 +1,28 @@
+{% extends "master.html" %}
+{% block content %}
+
+    <h1 class="text-center display-4">{{ mypersons.name }} {{ mypersons.last_name}}</h1>
+    <p class="text-center">Cantidad de videos: {{ video_count }}</p>
+    <p class="text-center">Todos los videos:</p>
+    <ul class="list-group">
+        {% for video in videos %}
+            <li class="list-group-item d-flex justify-content-center">
+                {{ video.title }}, {{ video.extension }}, {{ video.size }}
+            </li>
+        {% endfor %}
+    </ul>
+    <div class="text-center">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Subir video</button>
+        </form>
+    </div>
+
+    <p class="text-center">Miembro registrado desde: {{mypersons.regd_date }}</p>
+    <div class="text-center my-3">
+        <p>Volver a <a href="/users" class="btn btn-secondary">Usuarios de ProGol</a></p>
+    </div>
+
+
+{% endblock %}

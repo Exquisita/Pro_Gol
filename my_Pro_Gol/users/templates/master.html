@@ -1,0 +1,91 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title%} {% endblock %}</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+    body {
+        background-color: #f0f0f0;
+    }
+    .navbar {
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        background-color: #000000;
+    }
+
+    .navbar-nav .nav-item .nav-link {
+        color: #f8f9fa;
+    }
+
+    .navbar-brand, .nav-link {
+        color: #f8f9fa;
+        font-family: 'Helvetica Neue', sans-serif;
+        font-size: 18px;
+        transition: color 0.3s ease-in-out;
+    }
+    .navbar-brand:hover, .nav-link:hover {
+        color: #d6d8db;
+    }
+    .nav-link::after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 2px;
+        background: #d6d8db;
+        transition: width 0.3s;
+    }
+    .nav-link:hover::after {
+        width: 100%;
+    }
+    .nav-item {
+        margin: 0 10px;
+    }
+
+    /* Estilos para el botón de la barra de navegación */
+    .navbar-toggler {
+        background-color: #007bff;
+        border-color: #fff; /* Borde del mismo color */
+    }
+    .navbar-toggler:hover {
+        background-color: #0056b3;
+    }
+    .navbar-toggler:focus, .navbar-toggler:active {
+        background-color: #004085;
+    }
+    .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">ProGol Watch</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="/users">Canales</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/watch_videos/">Videos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/sign_up/">Registrate</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+    {% block content %}
+    {% endblock %}
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

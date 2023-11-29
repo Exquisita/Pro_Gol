@@ -1,0 +1,23 @@
+{% extends "master.html" %}
+{% block content %}
+
+    <h1 class="text-center display-4">{{ mypersons.name }} {{ mypersons.last_name}}</h1>
+    <p class="text-center">Cantidad de videos: {{ video_count }}</p>
+    <p class="text-center">Todos los videos:</p>
+    <ul class="list-group">
+        {% for video in videos %}
+            <li class="list-group-item d-flex justify-content-center">
+                <a href="{% url 'video_detail' id=video.id %}" class="lead">{{ video.title }}</a>, {{ video.extension }}, {{ video.size }}
+            </li>
+        {% endfor %}
+    </ul>
+    <div class="d-flex justify-content-center my-3">
+        <a href="{% url 'upload' id=mypersons.id %}" class="btn btn-primary">Sube tu video</a>
+    </div>
+    <p class="text-center">Miembro registrado desde: {{mypersons.regd_date }}</p>
+    <div class="d-flex justify-content-center my-3">
+        <p>Volver a <a href="/users" class="btn btn-secondary">Usuarios de ProGol</a></p>
+    </div>
+
+{% endblock %}
+
